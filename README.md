@@ -37,6 +37,20 @@ $ sudo reboot
 // 再起動後，再度SSH接続
 - カメラ起動（USBカメラの場合）
 ```
-$ cd ~/mjpg-streamer/mjpg-streamer-experimental
-$ mjpg_streamer -o './output_http.so -w ./www -p 8080' -i './input_uvc.so -d /dev/video1 -r 1920x1080 -fps 30 -q 10'
+$ cd ~
+$ touch start.sh
+$ chmod 755 start.sh
+$ nano start.sh
+
+// start.shに以下をコピペ
+#!/bin/sh
+
+PORT="8080"
+WINDOWSIZE="640x480"
+FRAMERATE="30"
+export LD_LIBRARY_PATH=/usr/local/lib
+mjpg_streamer -i "input_uvc.so -f $FRAMERATE -r $WINDOWSIZE -d /dev/video0 -y -n" \ -o "output_http.so -w /usr/local/share/mjpg-streamer/www -p $PORT"
+
+export LD_LIBRARY_PATH="$(pwd)"
+./mjpg_streamer -i "./input_uvc.so" -o "./output_http.so -w ./www"
 ```
