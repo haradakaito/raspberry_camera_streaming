@@ -57,11 +57,13 @@ export LD_LIBRARY_PATH="$(pwd)"
 ./mjpg_streamer -i "./input_uvc.so" -o "./output_http.so -w ./www"
 
 // 保存して終了
-$ ./start.sh
 ```
 
 - 動作確認
 ```
-// 配信リンクにアクセスして映像が表示されていれば完了
+// カメラ起動
+$ ./start.sh
+
 https://{ホスト名}:8080?action=stream
 ```
+配信リンクにアクセスして映像が表示されていれば完了
