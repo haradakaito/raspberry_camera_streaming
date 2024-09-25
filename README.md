@@ -35,16 +35,16 @@ $ sudo raspi-config nonint do_legacy 0
 $ sudo reboot
 
 // 再起動後，再度SSH接続
-- カメラ起動（USBカメラの場合）
+```
+
+- USBカメラ起動用のシェルスクリプト（start.sh）を作成
 ```
 $ cd ~
 $ touch start.sh
 $ chmod 755 start.sh
 $ nano start.sh
-```
 
-- 起動用のシェルスクリプト（start.sh）を作成
-```
+// 以下をコピペ
 #!/bin/sh
 
 PORT="8080"
@@ -55,4 +55,11 @@ mjpg_streamer -i "input_uvc.so -f $FRAMERATE -r $WINDOWSIZE -d /dev/video0 -y -n
 
 export LD_LIBRARY_PATH="$(pwd)"
 ./mjpg_streamer -i "./input_uvc.so" -o "./output_http.so -w ./www"
+
+// 保存して終了
+
+./start.sh
 ```
+
+- 動作確認
+https://{ホスト名}:8080?action=streamにアクセスし，映像が表示されていれば完了
