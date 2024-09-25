@@ -67,3 +67,31 @@ $ ./start.sh
 https://{ホスト名}:8080?action=stream
 ```
 配信リンクにアクセスして映像が表示されていれば完了
+
+- ラズパイ起動時の自動ストリーミング設定
+```
+$ cd /etc/systemd/system
+$ sudo touch mjpg-streamer.service
+$ sudo nano mjpg-streamer.service
+
+// 以下をコピペ
+[Unit]
+Description=MJPG-Streamer Service
+After=network-online.target
+
+[Service]
+Type=simple
+KillMode=process
+Restart=always
+ExecStart=/home/{ユーザー名}/start.sh
+
+[Install]
+WantedBy=multi-user.target
+
+$ sudo systemctl daemon-reload
+$ sudo systemctl start mjpg-streamer.service
+$ sudo systemctl enable mjpg-streamer.service
+
+// 再起動して確認
+$ sudo reboot
+```
