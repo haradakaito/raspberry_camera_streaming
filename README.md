@@ -41,8 +41,10 @@ $ cd ~
 $ touch start.sh
 $ chmod 755 start.sh
 $ nano start.sh
+```
 
-// start.shに以下をコピペ
+- 起動用のシェルスクリプト（start.sh）を作成
+```
 #!/bin/sh
 
 PORT="8080"
