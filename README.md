@@ -62,4 +62,7 @@ export LD_LIBRARY_PATH="$(pwd)"
 ```
 
 - 動作確認
-https://{ホスト名}:8080?action=streamにアクセスし，映像が表示されていれば完了
+```
+https://{ホスト名}:8080?action=stream
+```
+にアクセスし，映像が表示されていれば完了
