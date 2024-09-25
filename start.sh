@@ -1,5 +1,4 @@
 #!/bin/sh
-
 PORT="8080"
 WINDOWSIZE="640x480"
 FRAMERATE="30"
