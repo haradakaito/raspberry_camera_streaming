@@ -96,6 +96,11 @@ $ sudo systemctl enable mjpg-streamer.service
 $ sudo reboot
 ```
 
+- サービスファイルの状態を確認したい場合
+```
+$ sudo systemctl status mjpg-streamer.service
+```
+
 - 自動起動を停止させたい場合
 ```
 $ sudo systemctl disable mjpg-streamer.service
