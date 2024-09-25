@@ -35,4 +35,8 @@ $ sudo raspi-config nonint do_legacy 0
 $ sudo reboot
 
 // 再起動後，再度SSH接続
+- カメラ起動（USBカメラの場合）
+```
+$ cd ~/mjpg-streamer/mjpg-streamer-experimental
+$ mjpg_streamer -o './output_http.so -w ./www -p 8080' -i './input_uvc.so -d /dev/video1 -r 1920x1080 -fps 30 -q 10'
 ```
