@@ -64,7 +64,7 @@ export LD_LIBRARY_PATH="$(pwd)"
 // カメラ起動
 $ ./start.sh
 
-https://{ホスト名}:8080?action=stream
+https://{ホスト名}:8080/?action=stream
 ```
 配信リンクにアクセスして映像が表示されていれば完了
 
